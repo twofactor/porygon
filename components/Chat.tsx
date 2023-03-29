@@ -21,9 +21,26 @@ interface Message {
 }
 
 const seeds: Message[] = [
-  { id: 1, user: "me", text: "gggg" },
-  { id: 2, user: "them", text: "swag" },
-  { id: 3, user: "me", text: "yo" },
+  {
+    id: 1,
+    user: "me",
+    text: "I'm a big fan of ice cream.",
+  },
+  {
+    id: 2,
+    user: "me",
+    text: "What's your favorite flavor?",
+  },
+  {
+    id: 3,
+    user: "them",
+    text: "I like chocolate ice cream the best.",
+  },
+  {
+    id: 4,
+    user: "them",
+    text: "What's yours?",
+  },
 ];
 
 const seedsWithUpdatedIds = seeds.map((seed, i) => ({ ...seed, id: i + 1 }));
@@ -132,6 +149,7 @@ export default function Chat() {
                     exit={{ opacity: 0, scale: 0.8 }}
                     transition={{
                       opacity: { duration: 0.2 },
+                      borderRadius: { duration: 1.0 },
                       layout: {
                         type: "spring",
                         // bounce: 0.4,
@@ -159,6 +177,10 @@ export default function Chat() {
                           message.user === "me"
                             ? styles.messageMe
                             : styles.messageThem
+                        } ${
+                          messages[message.id]?.user !== message.user
+                            ? styles.lastMessage
+                            : ""
                         }`}
                       >
                         {message.text}
@@ -199,8 +221,8 @@ export default function Chat() {
               value={inputValue}
               onChange={handleInputChange}
               onKeyPress={handleKeyPress}
-              className={styles.textInput}
-              placeholder="Aa"
+              className={styles.textInput + " " + beVietnamPro.className}
+              placeholder="Say something..."
             />
             <motion.button
               onClick={addMessage}

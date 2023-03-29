@@ -38,21 +38,27 @@
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
   padding: 10px 14px;
-  border-radius: 20px;
+
   color: white;
   text-align: left;
   max-width: 200px;
   border: 0 solid transparent;
-  font-family: "Be Vietnam Pro", sans-serif;
+  /* font-family: "Be Vietnam Pro", sans-serif; */
   font-style: normal;
   font-size: 14px;
+  transition: border-radius 0.2s ease-in-out;
 }
 
 .messageMe {
-  background: linear-gradient(0deg, #29aef8 0%, #0f6bdb 100%);
-  box-shadow: 0px 2px 4px rgba(60, 8, 143, 0.08),
-    inset 0px 0px 0px 0.5px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(180deg, #5e10dc 0%, #7a24e7 100%);
+  /* box-shadow: 0px 2px 4px rgba(60, 8, 143, 0.08),
+    inset 0px 0px 0px 0.5px rgba(0, 0, 0, 0.25); */
   margin-left: auto;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.messageMe.lastMessage {
+  border-radius: 20px 20px 8px 20px;
 }
 
 .messageThem {
@@ -61,6 +67,11 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
   margin-right: auto;
   color: #222;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.messageThem.lastMessage {
+  border-radius: 20px 20px 20px 8px;
 }
 
 .bottomControl {
@@ -78,13 +89,13 @@
 
 .textInput {
   flex-grow: 1;
-  padding: 10px 14px;
+  padding: 12px 14px;
   background: #ffffff;
   border: 0.5px solid rgba(0, 0, 0, 0.16);
   box-shadow: 0px 1px 2px rgba(34, 2, 85, 0.05);
   border-radius: 20px;
   z-index: 1;
-  font-family: "Be Vietnam Pro", sans-serif;
+  /* font-family: "Be Vietnam Pro", sans-serif; */
   -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-size: 14px;
@@ -103,13 +114,12 @@
   height: 28px;
   width: 28px;
   position: absolute;
-  right: 5px;
+  right: 7px;
   z-index: 3;
-
-  background: linear-gradient(0deg, #29aef8 0%, #0f6bdb 100%);
+  cursor: pointer;
+  background: linear-gradient(180deg, #5e10dc 0%, #7a24e7 100%);
   border: none;
-  box-shadow: 0px 2px 4px rgba(60, 8, 143, 0.08),
-    inset 0px 0px 0px 0.5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 4px rgba(60, 8, 143, 0.08);
   border-radius: 16px;
   color: #ffffff;
   transition: background 0.2s ease-in-out, color 0.2s ease-in-out,
@@ -118,6 +128,7 @@
 
 .sendButton:disabled {
   background: linear-gradient(0deg, #acacac 0%, #757575 100%);
+  cursor: default;
   border: none;
   box-shadow: 0px 2px 4px rgba(60, 8, 143, 0.08),
     inset 0px 0px 0px 0.5px rgba(0, 0, 0, 0.25);
